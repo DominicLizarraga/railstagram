@@ -11,18 +11,21 @@
       </ul>
 
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <%= link_to "Log In", root_path, class: "nav-link active"  %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Sign Up", root_path, class: "nav-link active"  %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Upload", root_path, class: "nav-link active"  %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "@username", root_path, class: "nav-link active"  %>
-        </li>
+        <%= if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Upload", root_path, class: "nav-link active"  %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "@username", root_path, class: "nav-link active"  %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Log In", root_path, class: "nav-link active"  %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign Up", root_path, class: "nav-link active"  %>
+          </li>
+        <% end %>
         </li>
       </ul>
     </div>
