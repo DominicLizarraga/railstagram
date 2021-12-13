@@ -8,9 +8,15 @@
         <div class="d-flex align-items-center justify-content-between">
           <h5>
             <%= image_tag avatar_url_for(@post.user, size: 32), class: "rounded-circle mr-2" %>
+            <%= link_to @post.user.username, user_path(@post.user.username), class: "text-muted" %>
 
-            <%= @post.user.username %>
+            <% if current_user.present? && @post.user_id == current_user.id  %>
+              <small>
+                <%= link_to "Delete", post_path(@post), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Are you sure?" }  %>
+              </small>
+            <% end %>
           </h5>
+
         </div>
       </div>
     </div>
