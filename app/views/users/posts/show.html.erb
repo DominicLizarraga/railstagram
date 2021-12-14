@@ -16,9 +16,11 @@
               </small>
             <% end %>
           </h5>
-          <h5 class="text-muted">
-            <%= @post.likes_count %>
-          </h5>
+
+          <div data-behavior="post_<%= @post.id %>_likes">
+            <%= render(partial: "posts/likes", locals: { post: @post })%>
+          </div>
+
         </div>
       </div>
     </div>
