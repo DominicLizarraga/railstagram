@@ -5,7 +5,6 @@ module Posts
 
     def create
       @post.likes.where(user: current_user).first_or_create
-
       respond_to do |format|
         format.html { redirect_to user_post_path(@post.user.username, @post) }
         format.js
