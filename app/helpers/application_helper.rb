@@ -1,5 +1,6 @@
-module ApplicationHelper
+require 'digest'
 
+module ApplicationHelper
   def bootstrap_class_for(flash_type)
     {
       success: 'alert-success',
@@ -11,14 +12,13 @@ module ApplicationHelper
 
   def avatar_url_for(user, opts={})
     size = opts[:size] || 32
-
-    if user.avatar.attached?
-      user.avatar.variant(
-        resize: "#{size}x#{size}!"
-      )
-    else
-      hash = Digest::MD5.hexdigest(user.email.downcase)
-      "https://secure.gravatar.com/avatar/#{hash}.png?s=#{size}"
-    end
+      if current_user.avatar.attached?
+        current_user.avatar.variant(
+          resize: "#{size}x#{size}!"
+        )
+      else
+        # hash = Digest::MD5.hexdigest(user.email.downcase)
+        "https://secure.gravatar.com/avatar.png?s=32"
+      end
   end
 end
