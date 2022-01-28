@@ -11,8 +11,8 @@ module ApplicationHelper
   def avatar_url_for(user, opts={})
     size = opts[:size] || 32
 
-    if current_user.avatar.attached?
-      current_user.avatar.variant(
+    if user.avatar.attached?
+      user.avatar.variant(
         resize: "#{size}x#{size}!"
       )
     else

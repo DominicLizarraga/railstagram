@@ -9,6 +9,7 @@ module Posts
         format.html { redirect_to user_post_path(@post.user.username, @post) }
         format.js
       end
+      # binding.pry
     end
 
     def destroy
