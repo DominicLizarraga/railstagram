@@ -1,5 +1,5 @@
 <div class="my-1">
-  <div data-target="comments-list.newCommentErrors"></div>
+    <div data-comments-list-target="newCommentErrors"></div>
 
   <%= form_with(model: [post, comment], html: { data: { type: "html", action: "ajax:success->comments-list#onPostSuccess ajax:error->comments-list#onPostError" }}) do |f| %>
     <%= f.text_area :body, class: "form-control", placeholder: "Say something nice.", data: { target: "comments-list.textarea"} %>
@@ -8,3 +8,4 @@
     </div>
   <% end %>
 </div>
+
