@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :likes, only: [:create, :destroy], module: :posts
+    resources :comments, only: [:new, :create], module: :posts
   end
 
   resources :users, only: [:show], param: :username, path: '' do
