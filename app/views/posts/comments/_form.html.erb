@@ -1,4 +1,4 @@
-<div class="my-1">
+<div class="my-1" data-controller="comments-list">
     <div data-comments-list-target="newCommentErrors"></div>
 
   <%= form_with(model: [post, comment], html: { data: { type: "html", action: "ajax:success->comments-list#onPostSuccess ajax:error->comments-list#onPostError" }}) do |f| %>

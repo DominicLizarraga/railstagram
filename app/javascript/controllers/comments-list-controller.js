@@ -9,7 +9,9 @@ export default class extends Controller {
     "textarea"
     ];
 
-  connect() {}
+  connect() {
+    console.log("something")
+  }
 
   onPostError(event) {
     let [data, status, xhr] = event.detail;
